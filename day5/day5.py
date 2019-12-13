@@ -35,13 +35,17 @@ def computeIntcode(intcode):
     while b[0] != 99:
         try:
             op=b[0]
-            num1=intcode[b[1]]
-            num2=intcode[b[2]]
-            store=b[3]
+            
 
             if op == 1:
+                num1=intcode[b[1]]
+                num2=intcode[b[2]]
+                store=b[3]
                 intcode[store] = num1+num2
             if op == 2:
+                num1=intcode[b[1]]
+                num2=intcode[b[2]]
+                store=b[3]
                 intcode[store] = num1*num2
 
             blocks = updateBlocks(intcode)
