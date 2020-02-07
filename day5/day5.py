@@ -1,59 +1,36 @@
-f=open("day2/input.txt","r")
+f=open("day5/input.txt","r")
 intcode=f.readline().split(",")
 for i in range(len(intcode)):
     intcode[i] = int(intcode[i])
 
-original = list(intcode)
+opParams = {
+    1:3,
+    2:3,
+    3:1,
+    4:1
+}
 
-def updateBlocks(intcode):
-    updatedBlocks = []
-    for i in range(len(intcode)):
-        block = []
+codes=True
+nParams=0
+nParamsLeft=0
+params=[]
+paramModes=[]
+
+for i in intcode:
+    if codes:
+        op=int(str(i)[-1])
+        codes = False
+        
+        nParams=opParams[str(i)[-1]]
+        nParamsLeft=nParams
+        if len(str(i)) != 1:
+            for j in range(2+nParams-len(str(i))):
+                paramModes.append[0]
+            for j in i[:-2]:
+                paramModes.append[j]
+    else:
+        if paramModes[nParams-nParamsLeft]
 
 
-        if i%4 != 0:
-            continue
-        else:
-            if intcode[i] == 99:
-                updatedBlocks.append([99])
-                break
 
-            else:
-                for j in range(4):
-                    block.append(intcode[i+j])
-                updatedBlocks.append(block)
-    
-    return updatedBlocks
-
-
-
-def computeIntcode(intcode):
-    blocks = updateBlocks(intcode)
-    b = blocks[0]
-    stepNumber = 0
-
-    while b[0] != 99:
-        try:
-            op=b[0]
-            
-
-            if op == 1:
-                num1=intcode[b[1]]
-                num2=intcode[b[2]]
-                store=b[3]
-                intcode[store] = num1+num2
-            if op == 2:
-                num1=intcode[b[1]]
-                num2=intcode[b[2]]
-                store=b[3]
-                intcode[store] = num1*num2
-
-            blocks = updateBlocks(intcode)
-            stepNumber-=-1
-            b = blocks[stepNumber]
-        except:
-            break
-    
-    return (intcode)
-
-intcode = computeIntcode(intcode)
+print()
